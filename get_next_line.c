@@ -13,21 +13,43 @@
 #include "get_next_line.h"
 
 // read and store fonction
-
-// extract line fonction
+char	*read_and_store(char *line)
+{
+	static char	*line2[];
+	
+	
+}
 
 char	*get_next_line(int fd)
 {
-	static char *buffer;
-	int bytes_read;
+	static char *line;
+	int nbytes;
 
-	buffer = malloc(BUFFER_SIZE + 1);
-	if (fd < 0 || !buffer)
+	if (fd < 0 || !line)
         return NULL;
-	bytes_read = read(fd, buffer, BUFFER_SIZE);
+	nbytes = read(fd, line, BUFFER_SIZE);
 
-	if(bytes_read <= 0)
-		free(buffer);
+
+	if(nbytes <= 0)
+	{
+		free(line);
 		return NULL;
-	return (buffer);
+	}
+	return (line);
 }
+
+// char	*get_next_line(int fd)
+// {
+// 	static char *buffer;
+// 	int bytes_read;
+
+// 	buffer = malloc(BUFFER_SIZE + 1);
+// 	if (fd < 0 || !buffer)
+//         return NULL;
+// 	bytes_read = read(fd, buffer, BUFFER_SIZE);
+
+// 	if(bytes_read <= 0)
+// 		free(buffer);
+// 		return NULL;
+// 	return (buffer);
+// }

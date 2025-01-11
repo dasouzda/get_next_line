@@ -14,18 +14,31 @@
 
 int main()
 {
-    char *line;
+    ssize_t nbytes;
+    char buffer[BUFFER_SIZE];
+
     int fd = open("text.txt", O_RDONLY);
-    
-    if (fd < 0)
-        return (1);
-    
-    line = get_next_line(fd);
-    if (line)
-    {
-        printf("ligne lue : %s\n", line);
-        free(line);   
-    }
-    close(fd);
+    nbytes = read(fd, buffer, 5);
+    printf("Inside my buffer : [%s]\n", buffer);
+    printf("Number of bytes : %zd\n", nbytes);
     return (0);
+
 }
+
+// int main()
+// {
+//     char *line;
+//     int fd = open("text.txt", O_RDONLY);
+    
+//     if (fd < 0)
+//         return (1);
+    
+//     line = get_next_line(fd);
+//     if (line)
+//     {
+//         printf("ligne lue : %s\n", line);
+//         free(line);   
+//     }
+//     close(fd);
+//     return (0);
+// }
