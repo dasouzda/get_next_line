@@ -12,49 +12,61 @@
 
 #include "get_next_line.h"
 
-// read and store fonction
-// char	*read_and_store(char *line)
-// {
-// 	static char	*line2[];
-	
-	
-// }
+int	ft_strspn(char *str, char c)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i] != c)
+		i++;
+	return (i);
+}
+
+int	ft_strnjoin(char **s1, char *s2)
+{
+	int		i;
+	int		length;
+	char	*str;
+
+	length = ft_strspn(s2, '\n');
+	str = malloc(sizeof(char) * (ft_strlen(*s1) + length + 1));
+	if (!str)
+		return 0
+	i = 0;
+	while ((*s1)[i])
+	{
+		str[i] = (*s1)[i];
+		i++;
+	}
+	free(*s1);
+	while (*s2 && *s2 != '\n')
+	{
+		str[i] = *s2;
+		i++;
+		s2++;
+	}
+	*s1 = str;
+	return length;
+}
 
 char	*get_next_line(int fd)
 {
-	char buffer[BUFFER_SIZE];
+	char buffer[BUFFER_SIZE + 1];
 	char *line;
+	static char *tmp;
 
 	if (fd < 0)
         return NULL;
-	line = NULL;
-	while (read(fd, buffer, 5) > 0)
-	// while ((nbytes = read(fd, buffer, 5)) > 0)
+	// line = NULL;
+	line = malloc(1);
+	line[0] = '\0';
+	ft_bzero(buffer, BUFFER_SIZE + 1);
+	while (read(fd, buffer, BUFFER_SIZE) > 0)
     {
-		if (line == NULL)
-			line = ft_strdup(buffer);
-		else
-			line = ft_strjoin(line, buffer); 
-		// printf("%s\n", line); 
-		// printf("File descriptior : %d\n", fd);
-        //printf("Inside my buffer : [%s]\n", buffer);
+		if (ft_strnjoin(&line, buffer) != BUFFER_SIZE)
+		{
+			break;
+		}
     }
-	
 	return (line);
 }
-
-// char	*get_next_line(int fd)
-// {
-// 	static char *buffer;
-// 	int bytes_read;
-
-// 	buffer = malloc(BUFFER_SIZE + 1);
-// 	if (fd < 0 || !buffer)
-//         return NULL;
-// 	bytes_read = read(fd, buffer, BUFFER_SIZE);
-
-// 	if(bytes_read <= 0)
-// 		free(buffer);
-// 		return NULL;
-// 	return (buffer);
-// }

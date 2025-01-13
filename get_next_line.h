@@ -16,6 +16,6 @@
 #include <stdio.h> //pour printf()
 #include "./libft/libft.h"
 
-#define BUFFER_SIZE 10 //taille de mon buffer
+#define BUFFER_SIZE 5 //taille de mon buffer
 
 char    *get_next_line(int fd);

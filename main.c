@@ -17,24 +17,8 @@ int main()
     int fd = open("text.txt", O_RDONLY);
     char *line = get_next_line(fd);
     printf("%s\n", line);
+    char *line2 = get_next_line(fd);
+    printf("%s\n", line2);
     close(fd);
     return (0);
 }
-
-// int main()
-// {
-//     char *line;
-//     int fd = open("text.txt", O_RDONLY);
-    
-//     if (fd < 0)
-//         return (1);
-    
-//     line = get_next_line(fd);
-//     if (line)
-//     {
-//         printf("ligne lue : %s\n", line);
-//         free(line);   
-//     }
-//     close(fd);
-//     return (0);
-// }
