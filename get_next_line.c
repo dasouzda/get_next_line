@@ -13,28 +13,33 @@
 #include "get_next_line.h"
 
 // read and store fonction
-char	*read_and_store(char *line)
-{
-	static char	*line2[];
+// char	*read_and_store(char *line)
+// {
+// 	static char	*line2[];
 	
 	
-}
+// }
 
 char	*get_next_line(int fd)
 {
-	static char *line;
-	int nbytes;
+	char buffer[BUFFER_SIZE];
+	char *line;
 
-	if (fd < 0 || !line)
+	if (fd < 0)
         return NULL;
-	nbytes = read(fd, line, BUFFER_SIZE);
-
-
-	if(nbytes <= 0)
-	{
-		free(line);
-		return NULL;
-	}
+	line = NULL;
+	while (read(fd, buffer, 5) > 0)
+	// while ((nbytes = read(fd, buffer, 5)) > 0)
+    {
+		if (line == NULL)
+			line = ft_strdup(buffer);
+		else
+			line = ft_strjoin(line, buffer); 
+		// printf("%s\n", line); 
+		// printf("File descriptior : %d\n", fd);
+        //printf("Inside my buffer : [%s]\n", buffer);
+    }
+	
 	return (line);
 }
 

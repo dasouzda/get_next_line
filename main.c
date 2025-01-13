@@ -14,15 +14,11 @@
 
 int main()
 {
-    ssize_t nbytes;
-    char buffer[BUFFER_SIZE];
-
     int fd = open("text.txt", O_RDONLY);
-    nbytes = read(fd, buffer, 5);
-    printf("Inside my buffer : [%s]\n", buffer);
-    printf("Number of bytes : %zd\n", nbytes);
+    char *line = get_next_line(fd);
+    printf("%s\n", line);
+    close(fd);
     return (0);
-
 }
 
 // int main()

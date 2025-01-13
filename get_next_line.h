@@ -14,6 +14,7 @@
 #include <stdlib.h> //pour malloc()
 #include <fcntl.h> //pour open()
 #include <stdio.h> //pour printf()
+#include "./libft/libft.h"
 
 #define BUFFER_SIZE 10 //taille de mon buffer
 
