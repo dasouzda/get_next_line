@@ -6,7 +6,7 @@
 /*   By: dasouzda <dasouzda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:02:12 by dasouzda          #+#    #+#             */
-/*   Updated: 2025/01/10 19:47:46 by dasouzda         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:26:41 by dasouzda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_strnjoin(char **s1, char *s2)
 	length = ft_strspn(s2, '\n');
 	str = malloc(sizeof(char) * (ft_strlen(*s1) + length + 1));
 	if (!str)
-		return 0
+		return 0;
 	i = 0;
 	while ((*s1)[i])
 	{
@@ -53,7 +53,7 @@ char	*get_next_line(int fd)
 {
 	char buffer[BUFFER_SIZE + 1];
 	char *line;
-	static char *tmp;
+	//static char *tmp;
 
 	if (fd < 0)
         return NULL;

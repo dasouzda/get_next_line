@@ -6,9 +6,12 @@
 /*   By: dasouzda <dasouzda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:18:09 by dasouzda          #+#    #+#             */
-/*   Updated: 2025/01/10 19:38:56 by dasouzda         ###   ########.fr       */
+/*   Updated: 2025/01/17 12:18:02 by dasouzda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef GET_NEXT_LINE_H
+#define GET_NEXT_LINE_H
 
 #include <unistd.h> //pour read()
 #include <stdlib.h> //pour malloc()
@@ -19,3 +22,5 @@
 #define BUFFER_SIZE 5 //taille de mon buffer
 
 char    *get_next_line(int fd);
+
+#endif

@@ -6,14 +6,14 @@
 #    By: dasouzda <dasouzda@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/10 19:02:16 by dasouzda          #+#    #+#              #
-#    Updated: 2025/01/10 19:10:25 by dasouzda         ###   ########.fr        #
+#    Updated: 2025/01/17 11:36:43 by dasouzda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME = get_next_line.a
+NAME = getnextline.a
 
-SRC = //source
+SRC = get_next_line.c main.c
 
 OBJ = $(SRC:.c=.o)
 
