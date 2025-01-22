@@ -6,15 +6,26 @@
 /*   By: dasouzda <dasouzda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:18:09 by dasouzda          #+#    #+#             */
-/*   Updated: 2025/01/10 19:38:56 by dasouzda         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:23:38 by dasouzda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> //pour read()
-#include <stdlib.h> //pour malloc()
-#include <fcntl.h> //pour open()
-#include <stdio.h> //pour printf()
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
+# include <fcntl.h>  //pour open()
+# include <stdio.h>  //pour printf()
+# include <stdlib.h> //pour malloc()
+# include <unistd.h> //pour read()
 
-#define BUFFER_SIZE 5 //taille de mon buffer
+char	*get_next_line(int fd);
+char	*ft_strcjoin(char *line, char *buffer, char c);
+int		ft_strclen(char *str, char c);
+char	*ft_strcdup(char *buffer, char c);
+int		ft_strchr(char *buffer, char c);
+void	ft_clean(char *buffer);
 
-char    *get_next_line(int fd);
+
+#endif
