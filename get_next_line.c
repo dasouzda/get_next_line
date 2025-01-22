@@ -6,7 +6,7 @@
 /*   By: dasouzda <dasouzda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:02:12 by dasouzda          #+#    #+#             */
-/*   Updated: 2025/01/22 17:24:07 by dasouzda         ###   ########.fr       */
+/*   Updated: 2025/01/22 18:25:21 by dasouzda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ char	*get_next_line(int fd)
 
 	// On vérifie que: fd soit pas null / BUFFER_SIZE soit pas null/ le fichier soit readable
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	{
+		ft_memset(buffer, 0, sizeof(buffer));
 		return (NULL);
+	}
 	line = NULL;
 	// On initialise nbytes à 1, pour rentrer une première dans notre boucle
 	// nbtyes corresponds au nombre de byte lu par read (à la fin de la boucle)

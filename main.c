@@ -4,7 +4,7 @@
 int main(void)
 {
     char *line;
-    int fd = open("text_de_test.txt", O_RDONLY);
+    int fd = open("read_error.txt", O_RDONLY);
 
     while (1)
     {
