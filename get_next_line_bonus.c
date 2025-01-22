@@ -6,7 +6,7 @@
 /*   By: dasouzda <dasouzda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:57:10 by dasouzda          #+#    #+#             */
-/*   Updated: 2025/01/22 18:44:10 by dasouzda         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:01:57 by dasouzda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,17 @@ char	*ft_strcjoin(char *line, char *buffer, char c)
 
 char	*get_next_line(int fd)
 {
-	static char *buffer[4056];
+	static char *buffer[1024];
 	char *line;
 	int nbytes;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
 		ft_memset(buffer, 0, sizeof(buffer));
 		return (NULL);
 	}
+	if (!buffer[fd])
+        buffer[fd] = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	line = NULL;
 	nbytes = 1;
 	while (nbytes > 0)
