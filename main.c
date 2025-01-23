@@ -8,22 +8,28 @@
 
 // 	char *line = get_next_line(fd);
 // 	printf("%s", line);
+//     free(line);
 
 // 	char *line2 = get_next_line(fd);
 // 	printf("%s", line2);
+//     free(line2);
 
 // 	char *line3 = get_next_line(fd);
 // 	printf("%s", line3);
+//     free(line3);
 
 // 	char *line4 = get_next_line(fd);
 // 	printf("%s", line4);
+//     free(line4);
 
 // 	char *line5 = get_next_line(fd);
 // 	printf("%s", line5);
+//     free(line5);
 
 // 	close(fd);
 // 	return (0);
 // }
+
 
 //main 2
 
@@ -62,22 +68,22 @@
 
 //main pour les bonus
 
-int	main(void)
-{
-	int fd = open("text_de_test.txt", O_RDONLY);
-	int fd_bis = open("test_thomas.txt", O_RDONLY);
+// int	main(void)
+// {
+// 	int fd = open("text_de_test.txt", O_RDONLY);
+// 	int fd_bis = open("test_thomas.txt", O_RDONLY);
 
-	char *line = get_next_line(fd);
-	printf("%s", line);
+// 	char *line = get_next_line(fd);
+// 	printf("%s", line);
 
-    char *line_bis = get_next_line(fd_bis);
-    printf("%s", line_bis); 
+//     char *line_bis = get_next_line(fd_bis);
+//     printf("%s", line_bis); 
 
-	char *line2 = get_next_line(fd);
-	printf("%s", line2);
+// 	char *line2 = get_next_line(fd);
+// 	printf("%s", line2);
 
-    char *line2_bis = get_next_line(fd_bis);
-	printf("%s", line2_bis);
+//     char *line2_bis = get_next_line(fd_bis);
+// 	printf("%s", line2_bis);
 
 	// char *line3 = get_next_line(fd);
 	// printf("%s", line3);
@@ -88,6 +94,6 @@ int	main(void)
 	// char *line5 = get_next_line(fd);
 	// printf("%s", line5);
 
-	close(fd);
-	return (0);
-}
+// 	close(fd);
+// 	return (0);
+// }

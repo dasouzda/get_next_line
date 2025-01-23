@@ -6,13 +6,12 @@
 /*   By: dasouzda <dasouzda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:59:38 by dasouzda          #+#    #+#             */
-/*   Updated: 2025/01/22 18:31:58 by dasouzda         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:09:22 by dasouzda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-// Comme strlen,mais copie tant que on a pas atteints \0 OU le caractère c inclus (dans get_next_line,\n)
 int	ft_strclen(char *str, char c)
 {
 	int	i;
@@ -25,7 +24,6 @@ int	ft_strclen(char *str, char c)
 	return (i);
 }
 
-// Comme strndup, mais cette fois,copie tant que on a pas atteints \0 OU le caractère c inclus (dans get_next_line,\n)
 char	*ft_strcdup(char *buffer, char c)
 {
 	char	*str;
@@ -75,17 +73,4 @@ void	ft_clean(char *buffer)
 		j++;
 		i++;
 	}
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)s)[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
 }

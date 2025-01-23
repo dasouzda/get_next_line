@@ -6,7 +6,7 @@
 /*   By: dasouzda <dasouzda@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 18:29:48 by dasouzda          #+#    #+#             */
-/*   Updated: 2025/01/22 18:31:51 by dasouzda         ###   ########.fr       */
+/*   Updated: 2025/01/23 18:09:45 by dasouzda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,17 +73,4 @@ void	ft_clean(char *buffer)
 		j++;
 		i++;
 	}
-}
-
-void	*ft_memset(void *s, int c, size_t n)
-{
-	size_t i;
-
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)s)[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
 }
