@@ -50,7 +50,7 @@ char	*get_next_line(int fd)
 	// On vérifie que: fd soit pas null / BUFFER_SIZE soit pas null/ le fichier soit readable
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		ft_memset(buffer, 0, sizeof(buffer));
+		ft_memset(buffer[fd], 0, sizeof(buffer[fd]));
 		return (NULL);
 	}
 	line = NULL;
@@ -59,7 +59,7 @@ char	*get_next_line(int fd)
 	nbytes = 1;
 	while (nbytes > 0)
 	{
-		if (*buffer)
+		if (*(buffer))
 		{
 			// Je concatène dans une nouvelle chaine line et buffer.
 			line = ft_strcjoin(line, buffer, '\n');

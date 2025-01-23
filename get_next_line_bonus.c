@@ -40,23 +40,25 @@ char	*ft_strcjoin(char *line, char *buffer, char c)
 
 char	*get_next_line(int fd)
 {
-	static char *buffer[1024];
-	char *line;
-	int nbytes;
+	static char	buffer[256][BUFFER_SIZE + 1];
+	char		*line;
+	int			nbytes;
 
-	if (fd < 0 || fd >= 1024 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	// On vérifie que: fd soit pas null / BUFFER_SIZE soit pas null/ le fichier soit readable
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		ft_memset(buffer, 0, sizeof(buffer));
+		ft_memset(buffer[fd], 0, sizeof(buffer[fd]));
 		return (NULL);
 	}
-	if (!buffer[fd])
-        buffer[fd] = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	line = NULL;
+	// On initialise nbytes à 1, pour rentrer une première dans notre boucle
+	// nbtyes corresponds au nombre de byte lu par read (à la fin de la boucle)
 	nbytes = 1;
 	while (nbytes > 0)
 	{
-		if (*buffer[fd])
-		{ 
+		if (*(buffer[fd]))
+		{
+			// Je concatène dans une nouvelle chaine line et buffer.
 			line = ft_strcjoin(line, buffer[fd], '\n');
 			if (!line)
 				return (NULL);
